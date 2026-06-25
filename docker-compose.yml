@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # postgres:
+  #   image: postgres:16-alpine
+  #   container_name: pradoc-postgres
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: "12345"
+  #     POSTGRES_DB: pradoc_db
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   restart: always
+
+  redis:
+    image: redis:7-alpine
+    container_name: pradoc-redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: pradoc-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672" # Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    restart: always
+
+volumes:
+  postgres_data:
