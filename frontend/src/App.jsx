@@ -9,11 +9,16 @@ import OTPVerifyPage   from './pages/auth/OTPVerifyPage'
 import PatientHome     from './pages/patient/PatientHome'
 import DoctorSearch    from './pages/patient/DoctorSearch'
 import DoctorDetail    from './pages/patient/DoctorDetail'
+import BookAppointment from './pages/patient/BookAppointment'
+import PatientDashboard from './pages/patient/PatientDashboard'
+import MyAppointments  from './pages/patient/MyAppointments'
+import PatientProfile  from './pages/patient/PatientProfile'
 import DoctorDashboard from './pages/doctor/DoctorDashboard'
 import DoctorOnboarding from './pages/doctor/DoctorOnboarding'
 import AdminDashboard   from './pages/admin/AdminDashboard'
 
 import './patient-portal.css'
+import './appointments.css'
 
 export default function App() {
   return (
@@ -36,10 +41,13 @@ export default function App() {
             }
           >
             <Route index element={<Navigate to="/patient/home" replace />} />
-            <Route path="home" element={<PatientHome />} />
-            <Route path="dashboard" element={<Navigate to="/patient/home" replace />} />
-            <Route path="doctors" element={<DoctorSearch />} />
-            <Route path="doctors/:id" element={<DoctorDetail />} />
+            <Route path="home"            element={<PatientHome />} />
+            <Route path="dashboard"       element={<PatientDashboard />} />
+            <Route path="my-appointments" element={<MyAppointments />} />
+            <Route path="profile"         element={<PatientProfile />} />
+            <Route path="doctors"         element={<DoctorSearch />} />
+            <Route path="doctors/:id"     element={<DoctorDetail />} />
+            <Route path="book/:doctorId"  element={<BookAppointment />} />
           </Route>
 
           {/* Protected — Doctor */}

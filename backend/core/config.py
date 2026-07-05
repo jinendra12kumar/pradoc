@@ -5,7 +5,7 @@ from typing import Optional
 
 class Settings(BaseSettings):
     # ── Database ──────────────────────────────────────────
-    DATABASE_URL: str = "postgresql://postgres:12345@localhost:5432/pradoc_db"
+    DATABASE_URL: str = "postgresql://postgres:12345@localhost:5432/pradoc"
     DATABASE_TYPE: str = "postgresql"
 
     # ── JWT ───────────────────────────────────────────────

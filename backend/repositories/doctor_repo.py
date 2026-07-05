@@ -42,6 +42,7 @@ class DoctorRepository:
                 selectinload(DoctorProfile.documents),
                 selectinload(DoctorProfile.verification),
                 selectinload(DoctorProfile.flags),
+                selectinload(DoctorProfile.user),
             )
             .where(DoctorProfile.user_id == user_id)
         )
@@ -57,6 +58,7 @@ class DoctorRepository:
                 selectinload(DoctorProfile.documents),
                 selectinload(DoctorProfile.verification),
                 selectinload(DoctorProfile.flags),
+                selectinload(DoctorProfile.user),
             )
             .where(DoctorProfile.id == profile_id)
         )

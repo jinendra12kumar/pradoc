@@ -19,6 +19,21 @@ from models.doctor import (
     FlagType,
     FlagSeverity,
 )
+from models.appointment import (
+    PatientProfile,
+    Appointment,
+    AppointmentStatus,
+    AppointmentStatusHistory,
+    ConsultationType,
+    Prescription,
+    MedicalRecord,
+    MedicalRecordType,
+    Notification,
+    NotificationType,
+    BloodGroup,
+)
+
+from models.review import DoctorReview, ReviewStatus
 
 __all__ = [
     "User", "UserRole",
@@ -28,4 +43,9 @@ __all__ = [
     "Gender", "QualificationType", "DocumentType", "DocVerificationStatus",
     "VerificationStatus", "CouncilVerificationStatus", "ClinicVerificationStatus",
     "DayOfWeek", "FlagType", "FlagSeverity",
+    "PatientProfile", "Appointment", "AppointmentStatus", "AppointmentStatusHistory",
+    "ConsultationType", "Prescription", "MedicalRecord", "MedicalRecordType",
+    "Notification", "NotificationType", "BloodGroup",
+    "DoctorReview", "ReviewStatus",
 ]
+

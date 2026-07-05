@@ -18,6 +18,12 @@ celery_app.conf.update(
     task_acks_late=True,
     worker_prefetch_multiplier=1,
     task_routes={
-        "tasks.email_tasks.send_otp_email": {"queue": "email_queue"},
+        "tasks.email_tasks.send_otp_email":              {"queue": "email_queue"},
+        "tasks.email_tasks.send_appointment_booked":     {"queue": "email_queue"},
+        "tasks.email_tasks.send_appointment_confirmed":  {"queue": "email_queue"},
+        "tasks.email_tasks.send_appointment_cancelled":  {"queue": "email_queue"},
+        "tasks.email_tasks.send_prescription_ready":     {"queue": "email_queue"},
+        "tasks.email_tasks.send_record_uploaded":        {"queue": "email_queue"},
     },
 )
+

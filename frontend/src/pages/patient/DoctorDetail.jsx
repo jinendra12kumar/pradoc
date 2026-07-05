@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { patientApi } from '../../api/doctorApi'
+import DoctorReviews from '../../components/reviews/DoctorReviews'
 
 const DAY_NAMES = { MON: 'Monday', TUE: 'Tuesday', WED: 'Wednesday', THU: 'Thursday', FRI: 'Friday', SAT: 'Saturday', SUN: 'Sunday' }
 
@@ -98,8 +99,22 @@ export default function DoctorDetail() {
               </div>
             )}
           </div>
+          {/* Book Appointment CTA */}
+          <button
+            onClick={() => navigate(`/patient/book/${id}`)}
+            style={{
+              marginTop: 20,
+              background: 'linear-gradient(135deg, #6366f1, #4338ca)',
+              color: '#fff', border: 'none', padding: '13px 28px',
+              borderRadius: 12, fontWeight: 800, fontSize: '0.95rem',
+              cursor: 'pointer', boxShadow: '0 4px 16px rgba(99,102,241,0.35)',
+              display: 'inline-flex', alignItems: 'center', gap: 8,
+            }}>
+            🗓️ Book Appointment
+          </button>
         </div>
       </div>
+
 
       {/* ── About ────────────────────────────────────────────────── */}
       {(doctor.bio || doctor.languages_spoken?.length > 0) && (
@@ -210,6 +225,15 @@ export default function DoctorDetail() {
           ))}
         </div>
       )}
+
+      {/* ── Patient Reviews ───────────────────────────────────────── */}
+      <div className="detail-section">
+        <h2 className="detail-section-title">⭐ Patient Reviews</h2>
+        <DoctorReviews
+          doctorProfileId={id}
+          canReview={localStorage.getItem('user_role') === 'patient'}
+        />
+      </div>
     </div>
   )
 }
