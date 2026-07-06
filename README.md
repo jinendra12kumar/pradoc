@@ -5,8 +5,6 @@
 
 > A scalable healthcare platform inspired by **Practo**, **Zocdoc**, **DocPlanner**, **Apollo 24|7**, and **Halodoc** that enables doctor discovery, appointment scheduling, secure video consultations, digital prescriptions, and patient health record management.
 
-**Built with FastAPI • React • PostgreSQL • Redis • RabbitMQ • Jitsi**
-
 [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
@@ -18,7 +16,7 @@
 
 ---
 
-## 📖 Project Goal
+## 📖 Overview
 
 The goal of this project is to build a scalable, highly robust healthcare platform that enables patients to discover doctors, schedule appointments, manage medical records, receive digital prescriptions, participate in remote video consultations, and access healthcare services through a modern, secure, and user-friendly interface.
 
