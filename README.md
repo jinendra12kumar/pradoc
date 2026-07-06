@@ -70,26 +70,18 @@ The goal of this project is to build a scalable, highly robust healthcare platfo
 
 ## 🛠️ Tech Stack
 
-### Backend
-* **Framework:** FastAPI (Python)
-* **Database:** PostgreSQL (with SQLAlchemy ORM & Alembic for migrations)
-* **Caching & Locks:** Redis
-* **Message Broker:** RabbitMQ
-* **Security:** JWT Authentication, Passlib (Bcrypt)
-
-### Frontend
-* **Library:** React.js (Vite)
-* **State Management:** React Query (Server state), Zustand / Context API (Client state)
-* **Styling:** Custom Modern CSS & Tailwind CSS (Responsive, dark/light themes)
-* **HTTP Client:** Axios / Native Fetch
-* **Video SDK:** Jitsi Meet External API
-
-### Infrastructure & Architecture
-* **RESTful APIs** adhering to strict OpenAPI schemas.
-* **Repository-Service Pattern** for clean backend logic separation.
-* **Event-Driven Architecture** for decoupling notifications and heavy tasks.
-* **Dockerized Deployment** for consistent cross-environment builds.
-
+| Layer | Technology |
+|--------|------------|
+| Frontend | React + Vite |
+| Backend | FastAPI |
+| Database | PostgreSQL |
+| Cache | Redis |
+| Queue | RabbitMQ |
+| ORM | SQLAlchemy |
+| Authentication | JWT |
+| Video | Jitsi Meet |
+| API Documentation | OpenAPI / Swagger |
+| Deployment | Docker |
 ---
 
 ## 📂 Project Structure
@@ -117,6 +109,48 @@ pradoc/
 
 ---
 
-<div align="center">
-  <i>Built with ❤️ for modern healthcare.</i>
-</div>
+## 💡 Why PraDoc?
+
+PraDoc is designed as a modern telemedicine platform that demonstrates scalable software architecture using contemporary backend technologies.
+
+The project focuses on:
+
+- Clean Architecture
+- Repository-Service Pattern
+- Event-Driven Communication
+- Secure Authentication
+- High Performance APIs
+- Scalable Healthcare Workflows
+
+---
+
+## Project Status
+| Module | Status |
+|---------|--------|
+| Authentication | ✅ |
+| Doctor Onboarding | ✅ |
+| Patient Dashboard | ✅ |
+| Appointment Booking | ✅ |
+| Video Consultation | ✅ |
+| Notifications | ✅ |
+| Payments | 📅 Planned |
+| AI Assistant | 📅 Planned |
+
+
+## 📚 API Documentation
+
+OpenAPI documentation:
+
+http://localhost:8000/docs
+
+ReDoc:
+
+http://localhost:8000/redoc
+
+## ⭐ Support
+
+If you found this project helpful, consider giving it a ⭐ on GitHub.
+
+Contributions, suggestions, and feedback are always welcome.
+<!-- 
+Built with ❤️ by Jinendra Kumar -->
