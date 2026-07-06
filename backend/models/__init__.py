@@ -34,6 +34,7 @@ from models.appointment import (
 )
 
 from models.review import DoctorReview, ReviewStatus
+from models.article import Article
 
 __all__ = [
     "User", "UserRole",
@@ -47,5 +48,6 @@ __all__ = [
     "ConsultationType", "Prescription", "MedicalRecord", "MedicalRecordType",
     "Notification", "NotificationType", "BloodGroup",
     "DoctorReview", "ReviewStatus",
+    "Article",
 ]
 

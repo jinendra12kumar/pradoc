@@ -158,6 +158,10 @@ class Appointment(Base):
     completed_at  = Column(DateTime(timezone=True), nullable=True)
     cancelled_at  = Column(DateTime(timezone=True), nullable=True)
 
+    # Video consultation metadata
+    meeting_started_at = Column(DateTime(timezone=True), nullable=True)
+    meeting_ended_at   = Column(DateTime(timezone=True), nullable=True)
+
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
 

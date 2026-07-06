@@ -15,10 +15,23 @@ import MyAppointments  from './pages/patient/MyAppointments'
 import PatientProfile  from './pages/patient/PatientProfile'
 import DoctorDashboard from './pages/doctor/DoctorDashboard'
 import DoctorOnboarding from './pages/doctor/DoctorOnboarding'
-import AdminDashboard   from './pages/admin/AdminDashboard'
+
+// Video Consultation
+import VideoConsultation from './pages/consultation/VideoConsultation'
+
+// Admin Panel
+import AdminLayout        from './pages/admin/AdminLayout'
+import AdminHome          from './pages/admin/AdminHome'
+import ManageDoctors      from './pages/admin/ManageDoctors'
+import ManagePatients     from './pages/admin/ManagePatients'
+import ManageAppointments from './pages/admin/ManageAppointments'
+import ManageArticles     from './pages/admin/ManageArticles'
+import ManageReviews      from './pages/admin/ManageReviews'
 
 import './patient-portal.css'
 import './appointments.css'
+import './admin.css'
+import './consultation.css'
 
 export default function App() {
   return (
@@ -50,6 +63,16 @@ export default function App() {
             <Route path="book/:doctorId"  element={<BookAppointment />} />
           </Route>
 
+          {/* Video Consultation (patient OR doctor) */}
+          <Route
+            path="/consultation/:appointmentId"
+            element={
+              <ProtectedRoute allowedRoles={['patient', 'doctor']}>
+                <VideoConsultation />
+              </ProtectedRoute>
+            }
+          />
+
           {/* Protected — Doctor */}
           <Route
             path="/doctor/dashboard"
@@ -68,15 +91,25 @@ export default function App() {
             }
           />
 
-          {/* Protected — Admin */}
+          {/* Protected — Admin (nested routes via AdminLayout) */}
           <Route
-            path="/admin/dashboard"
+            path="/admin"
             element={
               <ProtectedRoute allowedRoles={['admin']}>
-                <AdminDashboard />
+                <AdminLayout />
               </ProtectedRoute>
             }
-          />
+          >
+            <Route index                    element={<Navigate to="/admin/home" replace />} />
+            <Route path="home"              element={<AdminHome />} />
+            <Route path="doctors"           element={<ManageDoctors />} />
+            <Route path="patients"          element={<ManagePatients />} />
+            <Route path="appointments"      element={<ManageAppointments />} />
+            <Route path="articles"          element={<ManageArticles />} />
+            <Route path="reviews"           element={<ManageReviews />} />
+            {/* Legacy redirect */}
+            <Route path="dashboard"         element={<Navigate to="/admin/home" replace />} />
+          </Route>
 
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/auth/login" replace />} />

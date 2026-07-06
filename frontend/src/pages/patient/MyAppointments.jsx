@@ -70,7 +70,24 @@ export default function MyAppointments() {
         <>
           <div style={{ display: 'grid', gap: 14 }}>
             {data.items.map(appt => (
-              <AppointmentCard key={appt.id} appt={appt} role="patient" onCancel={handleCancel} />
+              <div key={appt.id}>
+                <AppointmentCard appt={appt} role="patient" onCancel={handleCancel} />
+                {appt.status === 'confirmed' && appt.consultation_type === 'online' && (
+                  <div style={{ marginTop: 8, display: 'flex', justifyContent: 'flex-end' }}>
+                    <button
+                      className="btn-primary"
+                      style={{
+                        background: 'linear-gradient(135deg,#6366f1,#8b5cf6)',
+                        display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.85rem',
+                        padding: '9px 20px', borderRadius: 10,
+                      }}
+                      onClick={() => navigate(`/consultation/${appt.id}`)}
+                    >
+                      🎥 Join Video Consultation
+                    </button>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 

@@ -112,12 +112,30 @@ export default function DoctorDashboard() {
             {!summary?.today_appointments?.length ? (
               <div className="empty-state"><div className="emoji">☀️</div><div>No appointments today.</div></div>
             ) : (
-              <div style={{ display: 'grid', gap: 14 }}>
+            <div style={{ display: 'grid', gap: 14 }}>
                 {summary.today_appointments.map(appt => (
-                  <AppointmentCard key={appt.id} appt={appt} role="doctor"
-                    onConfirm={handleConfirm} onComplete={handleComplete}
-                    onNoShow={handleNoShow} onPrescribe={setPrescAppt}
-                    onViewPatient={handleViewPatient} />
+                  <div key={appt.id}>
+                    <AppointmentCard appt={appt} role="doctor"
+                      onConfirm={handleConfirm} onComplete={handleComplete}
+                      onNoShow={handleNoShow} onPrescribe={setPrescAppt}
+                      onViewPatient={handleViewPatient} />
+                    {appt.status === 'confirmed' && appt.consultation_type === 'online' && (
+                      <div style={{ marginTop: 8, display: 'flex', justifyContent: 'flex-end' }}>
+                        <button
+                          style={{
+                            display: 'flex', alignItems: 'center', gap: 8,
+                            padding: '9px 20px', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)',
+                            color: 'white', border: 'none', borderRadius: 10,
+                            fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer',
+                            boxShadow: '0 4px 14px rgba(99,102,241,0.35)',
+                          }}
+                          onClick={() => navigate(`/consultation/${appt.id}`)}
+                        >
+                          🚀 Start Video Consultation
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             )}
@@ -137,10 +155,28 @@ export default function DoctorDashboard() {
             ) : (
               <div style={{ display: 'grid', gap: 14 }}>
                 {appts.items.map(appt => (
-                  <AppointmentCard key={appt.id} appt={appt} role="doctor"
-                    onConfirm={handleConfirm} onComplete={handleComplete}
-                    onNoShow={handleNoShow} onPrescribe={setPrescAppt}
-                    onViewPatient={handleViewPatient} />
+                  <div key={appt.id}>
+                    <AppointmentCard appt={appt} role="doctor"
+                      onConfirm={handleConfirm} onComplete={handleComplete}
+                      onNoShow={handleNoShow} onPrescribe={setPrescAppt}
+                      onViewPatient={handleViewPatient} />
+                    {appt.status === 'confirmed' && appt.consultation_type === 'online' && (
+                      <div style={{ marginTop: 8, display: 'flex', justifyContent: 'flex-end' }}>
+                        <button
+                          style={{
+                            display: 'flex', alignItems: 'center', gap: 8,
+                            padding: '9px 20px', background: 'linear-gradient(135deg,#6366f1,#8b5cf6)',
+                            color: 'white', border: 'none', borderRadius: 10,
+                            fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer',
+                            boxShadow: '0 4px 14px rgba(99,102,241,0.35)',
+                          }}
+                          onClick={() => navigate(`/consultation/${appt.id}`)}
+                        >
+                          🚀 Start Video Consultation
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             )}
