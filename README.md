@@ -1,8 +1,11 @@
 <div align="center">
   
-# 🩺 PraDoc — Modern Healthcare Platform
+# 🩺 PraDoc 
+### Modern Full-Stack Healthcare Management Platform
 
-**A FullStack healthcare management platform inspired by systems like Practo, Zocdoc,DocPlanner, Apollo24/7 and HaloDoc, designed to streamline interactions between patients, healthcare providers, and administrators.**
+> A scalable healthcare platform inspired by **Practo**, **Zocdoc**, **DocPlanner**, **Apollo 24|7**, and **Halodoc** that enables doctor discovery, appointment scheduling, secure video consultations, digital prescriptions, and patient health record management.
+
+**Built with FastAPI • React • PostgreSQL • Redis • RabbitMQ • Jitsi**
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
